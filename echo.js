@@ -1,25 +1,21 @@
 window.echo = function (message, namespace) {
+  echo.emit(message, namespace, 'log');
+};
+
+echo.namespaces = {};
+
+echo.emit = function (message, namespace, type) {
   if (namespace && !echo.namespaces[namespace]) {
     return;
   }
 
-  console.log(message);
+  console[type](message);
 };
 
-// TODO : DRY
 echo.warn = function (message, namespace) {
-  if (namespace && !echo.namespaces[namespace]) {
-    return;
-  }
-
-  console.warn(message);
+  echo.emit(message, namespace, 'warn');
 };
 
-// TODO : DRY
 echo.error = function (message, namespace) {
-  if (namespace && !echo.namespaces[namespace]) {
-    return;
-  }
-
-  console.error(message);
+  echo.emit(message, namespace, 'error');
 };

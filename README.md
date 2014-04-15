@@ -1,6 +1,6 @@
 # Echo
 
-**A configurable console wrapper**
+**A configurable console wrapper.**
 
 Author: [@gvn](http://twitter.com/gvn)
 
